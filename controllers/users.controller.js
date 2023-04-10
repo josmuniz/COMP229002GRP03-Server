@@ -12,9 +12,7 @@ exports.create = async function(req, res, next) {
             saltLength: 32,
             parallelism: 2
         });
-
-        user.permissionLevel = 1;
-
+        user.permissionLevel = 2;
         user.save((err) => {
             if (err) {
                 return next(err);
@@ -99,10 +97,10 @@ exports.list = function(req, res, next) {
 
 exports.delete = function(req, res, next) {
     User.deleteOne({username: req.body.username}, (err, result) => {
-        if (err) {
-            return next(err);
-        } else {
-            res.status(200).json(result);
+      if (err) {
+          return next(err);
+       } else {
+          res.status(200).json(result);
         }
     });
 };

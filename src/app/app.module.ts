@@ -59,7 +59,8 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        
+        //whitelistedDomains: ['localhost:3000'], // Change this for production
+        //blacklistedRoutes: ['localhost:3000/users/signIn'] // Change this for production
       }
     })
     // End of security code
